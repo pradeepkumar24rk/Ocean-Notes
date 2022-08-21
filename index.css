@@ -1,0 +1,220 @@
+*
+{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-image: linear-gradient(to right,rgba(24, 20, 20, 0.315),rgba(17, 16, 16, 0.658)),url("43868.jpg");
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    
+    
+    
+}
+.navbar{
+    color: rgb(234, 237, 240);
+    display: flex;
+    justify-content: space-between;
+    /* background-color: blue; */
+    margin: 10px;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    
+}
+.navbar ul
+{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    /* background-color: black; */
+    font-size: 20px;
+    cursor: pointer;
+    
+}
+.navbar ul li
+{
+    /* text-align: center; */
+    padding: 10px 20px;
+    position: relative;
+    
+}
+.navbar h1{
+    text-transform: uppercase;
+    /* align-items: center; */
+    cursor: default;
+}
+span{
+    color: red;
+}
+/* .navbar ul li:hover
+{
+    background: aliceblue;
+    border-radius: 10px;
+    color: rgb(235, 23, 23);
+} */
+/* .navbar h1:hover{
+    background-color: aqua;
+} */
+button
+{
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(231, 101, 101);
+  color: aliceblue;
+}
+button:hover{
+    background-color: rgb(207, 86, 86);
+    cursor: pointer;
+}
+.sub-menu
+{
+    display: none;
+    color: aliceblue;
+    text-transform: capitalize;
+}
+/* .fa
+{
+    float: left;
+    color:rgb(76, 206, 65) !important;
+} */
+
+.navbar ul li:hover .sub-menu
+{
+    display: block;
+    position: absolute;
+    margin-top: 10px;
+    margin-right:10px;
+    /* background-color: aqua; */
+    width: 250px;
+    
+}
+.navbar ul li:hover .sub-menu ul
+{
+    display: block;
+    font-size: 20px;
+    /* transition-delay: 5s; */
+    /* background-color: red; */
+    
+}
+.loginform
+{
+    color: aliceblue;
+    text-align: center;
+    margin: 125px;
+    border: 4px inset white ;
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    width: 500px;
+    margin-left: 450px;
+    height: inherit;
+    background-color: rgba(127, 153, 153, 0.39);
+
+}
+.loginform h1{
+    font-size: 50px;
+    text-transform: uppercase;
+    cursor: default;
+}
+.loginform input
+{
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.loginform a
+{
+    text-decoration: none;
+    color: aliceblue;
+}
+.loginform a:hover
+{
+    color: rgb(15, 189, 108);
+}
+footer
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    /* background-color: rgba(127, 153, 153, 0.39); */
+    width: 100%;
+    text-align: center;
+    color: aliceblue;
+    font-size: 15px;
+    font-weight: 10;
+    
+}
+.loginform{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+@keyframes moveup
+{
+    100%
+    {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+.navbar ul li a{                           
+    text-decoration: none;
+    color: aliceblue;
+    position: relative;
+}
+.navbar ul li a::after{                              /* underline menu feature*/
+    content: '';
+    width: 0%;
+    height: 2px;
+    background:rgb(15, 189, 108); 
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    transition: 0.5s;
+}
+
+.navbar ul li a:hover::after{
+    width: 100%;
+    
+}
+
+
+
+.navbar ul li:hover .sub-menu ul li a{
+    text-decoration: none;
+    color: aliceblue;
+    position: relative;
+}
+.navbar ul li:hover .sub-menu ul li a::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background:rgb(15, 189, 108); 
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover .sub-menu ul li a:hover:after
+{
+    width: 100%;
+}
+/* .uname
+{
+    padding-left: 0px;
+} */
+ /* .loginform form .error-msg{
+    color: rgb(41, 102, 32);
+     display: block;
+    margin: 10px 0px; 
+    background-color: red;
+} */

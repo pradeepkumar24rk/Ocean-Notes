@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Notes</title>
+    <link rel="stylesheet" href="sticky notes.css">
+    <!-- <script src="sticky notes.js"></script> -->
+    <script src="https://kit.fontawesome.com/1743032bc0.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <div class="header">
+        <h1><span style="color:rgb(10, 147, 189);">Ocean</span> notes <i class="fa-brands fa-digital-ocean" style="color:rgb(10, 147, 189);"></i></h1>
+    </div>
+    <div id="app">
+        <!-- <h1>THANKS FOR COMING HERE</h1> -->
+        <!-- <textarea class="note" cols="30" rows="10" placeholder="NOTES"></textarea> -->
+        <button class="add-note" type="button"><i class="fa-solid fa-plus" style="color: rgb(229, 241, 243);"></i></button>
+        <!-- <label for="">pradeep</label> -->
+    </div>
+    <script>const notesContainer = document.getElementById("app");
+        const addNoteButton = notesContainer.querySelector(".add-note");
+        
+        getNotes().forEach((note) => {
+          const noteElement = createNoteElement(note.id, note.content);
+          notesContainer.insertBefore(noteElement, addNoteButton);
+        });
+        
+        addNoteButton.addEventListener("click", () => addNote());
+        
+        function getNotes() {
+          return JSON.parse(localStorage.getItem("stickynotes-notes") || "[]");
+        }
+        
+        function saveNotes(notes) {
+          localStorage.setItem("stickynotes-notes", JSON.stringify(notes));
+        }
+        
+        function createNoteElement(id, content) {
+          const element = document.createElement("textarea");
+        
+          element.classList.add("note");
+          element.value = content;
+          element.placeholder = "NOTES";
+        
+          element.addEventListener("change", () => {
+            updateNote(id, element.value);
+          });
+        
+          element.addEventListener("dblclick", () => {
+            const doDelete = confirm(
+              "Are you sure you wish to delete this sticky note?"
+            );
+        
+            if (doDelete) {
+              deleteNote(id, element);
+            }
+          });
+        
+          return element;
+        }
+        
+        function addNote() {
+          const notes = getNotes();
+          const noteObject = {
+            id: Math.floor(Math.random() * 100000),
+            content: ""
+          };
+        
+          const noteElement = createNoteElement(noteObject.id, noteObject.content);
+          notesContainer.insertBefore(noteElement, addNoteButton);
+        
+          notes.push(noteObject);
+          saveNotes(notes);
+        }
+        
+        function updateNote(id, newContent) {
+          const notes = getNotes();
+          const targetNote = notes.filter((note) => note.id == id)[0];
+        
+          targetNote.content = newContent;
+          saveNotes(notes);
+        }
+        
+        function deleteNote(id, element) {
+          const notes = getNotes().filter((note) => note.id != id);
+        
+          saveNotes(notes);
+          notesContainer.removeChild(element);
+        }
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+*
+{
+    margin: 0;
+}
+body{
+    
+   background-image: url(stickynotes.jpg);
+}
+.header
+{
+    text-align: center;
+    justify-content: center;
+    /* background:rgb(189, 184, 184); */
+    /* background-image: linear-gradient(to bottom right, rgb(208, 241, 185), rgb(5, 184, 50)); */
+    /* background: rgb(174,238,177);
+background: radial-gradient(circle, rgba(174,238,177,0.896796218487395) 34%, rgba(148,233,171,1) 97%); */
+
+
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 15px;
+    color:#f3ebeb;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(60px);
+    animation: moveup 0.5s linear forwards;
+    /* background: -webkit-linear-gradient(rgb(76, 140, 235), rgb(58, 240, 140));    
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  cursor: default;
+}
+@keyframes moveup {
+    100%
+    {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+}
+
+
+#app
+{
+    color: red;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,200px);
+    padding: 24px;
+    gap: 24px;
+    
+}
+.note{
+    padding: 16px;
+    height: 200px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 20px;
+    /* box-shadow: 0 0 7px rgba(0, 0, 0, 0.15) ; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    resize: none;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.add-note
+{
+    height: 200px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 90px;
+    color: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.add-note:hover
+{
+
+    background: rgba(0, 0, 0, 0.30);
+}
